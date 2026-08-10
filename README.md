@@ -326,7 +326,7 @@ The system uses a simple JSON-based protocol over TCP sockets:
 
 ## Limitations & Security Considerations
 
-- The `execute_blender_code` tool allows running arbitrary Python code in Blender, which can be powerful but potentially dangerous. Use with caution in production environments. ALWAYS save your work before using it.
+- The viewport-only `execute_blender_code` tool accepts a statically validated Python subset for active-camera and viewport/UI state only. Scene objects, meshes, materials, filesystem/network access, dynamic reflection, and unknown attribute chains are rejected before code is sent to Blender.
 - Poly Haven requires downloading models, textures, and HDRI images. If you do not want to use it, please turn it off in the checkbox in Blender. 
 - Complex operations might need to be broken down into smaller steps
 
